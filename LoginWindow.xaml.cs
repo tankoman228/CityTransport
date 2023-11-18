@@ -45,31 +45,31 @@ namespace CityTransport
         {
             using (var db = new DB())
             {
-                DB_Objects.Account user = db.account.Where(
+                DB_Objects.Account account = db.account.Where(
                 x => x.Username == tbLogin.Text).SingleOrDefault();
 
-                if (user == null)
+                if (account == null)
                 {
                     MessageBox.Show("User doesn't exist!");
                     return;
                 }
                 else
                 {
-                    if (!user.PasswordHash.Equals(tbPassword.Password))
+                    if (!account.PasswordHash.Equals(tbPassword.Password))
                     {
                         MessageBox.Show("Wrong password!");
                         return;
                     }
                     else
                     {
-                        if (user.Status != true)
+                        if (account.Status != true)
                         {
                             MessageBox.Show("Admins disabled your account!");
                             return;
                         }
                         else
                         {
-                            switch(user.ID_AccountType)
+                            switch(account.ID_AccountType)
                             {
                                 case 1:
                                     UserData.userType = UserData.UserType.Operator;
@@ -85,6 +85,8 @@ namespace CityTransport
                                     MessageBox.Show("Unknown user role!");
                                     return; //RETURN! Don't open new window
                             }
+
+                            UserData.Account = account;
 
                             new Forms.MainMenu().Show();
                             Close();
