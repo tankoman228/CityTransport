@@ -68,9 +68,17 @@
     <Compile Include="Forms\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SuperAdminPanel.xaml.cs">
+      <DependentUpon>SuperAdminPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="TextResizer.cs" />
     <Compile Include="UserData.cs" />
     <Page Include="Forms\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\SuperAdminPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,18 +14,25 @@ namespace CityTransport.Forms
             switch(UserData.userType)
             {
                 case UserData.UserType.Operator:
-                    MessageBox.Show("You're operator");
+                    MessageBox.Show("You're operator");                  
                     break;
                 case UserData.UserType.Admin:
                     MessageBox.Show("You're admin");
                     break;
                 case UserData.UserType.SuperAdmin:
+                    pgContents.Content = new SuperAdminPanel();
                     MessageBox.Show("You're superadmin");
                     break;
                 default:
                     Close();
                     break;
             }
+
+            this.SizeChanged += new TextResizer(this).Window_SizeChanged;
+            this.SizeChanged += (s, v) =>
+            {
+                tbl_header.FontSize *= 3;
+            };
         }
     }
 }

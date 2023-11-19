@@ -55,7 +55,7 @@ namespace CityTransport
                 }
                 else
                 {
-                    if (!account.PasswordHash.Equals(tbPassword.Password))
+                    if (!PasswordHash.verifyPassword(tbPassword.Password, account.PasswordHash))
                     {
                         MessageBox.Show("Wrong password!");
                         return;

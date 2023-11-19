@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:CityTransport"
              StartupUri="LoginWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
     </Application.Resources>
 </Application>
