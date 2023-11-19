@@ -18,6 +18,9 @@ namespace CityTransport.DB_Objects
         public int? ID_Group { get; set; }
         public int ID_AccountType { get; set; }
 
+        [ForeignKey("ID_Group")]
+        public Group Group { get; set; }
+
         public string Username { get; set; }
         public string PasswordHash { get; set; }
         public bool Status { get; set; }

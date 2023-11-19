@@ -32,6 +32,11 @@ namespace CityTransport.Forms
             btnRoutes.Click += BtnRoutes_Click;
             btnStats.Click += BtnStats_Click;
             btnWorkers.Click += BtnWorkers_Click;
+
+            using (var x = new DB())
+            {
+
+            }
         }
 
         private void BtnWorkers_Click(object sender, RoutedEventArgs e)
@@ -61,12 +66,12 @@ namespace CityTransport.Forms
 
         private void BtnCreateGroup_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            new GroupCreate().ShowDialog();
         }
 
         private void BtnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            new AccountCreate().ShowDialog();
         }
 
         private void BtnCarriers_Click(object sender, RoutedEventArgs e)
