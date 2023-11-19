@@ -1,0 +1,23 @@
+﻿<Window x:Class="CityTransport.Forms.GroupCreate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CityTransport.Forms"
+        mc:Ignorable="d"
+        Title="Group Create" Height="400" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock FontSize="36">Create Group</TextBlock>
+            
+            <TextBlock FontSize="20" HorizontalAlignment="Left">Name</TextBlock>
+            <TextBox FontSize="20"></TextBox>
+
+            <TextBlock FontSize="20" HorizontalAlignment="Left">Description</TextBlock>
+            <RichTextBox FontSize="20" Height="170"></RichTextBox>
+
+            <Button Margin="10" FontSize="30">Create And Save</Button>
+            
+        </StackPanel>
+    </Grid>
+</Window>

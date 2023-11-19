@@ -65,20 +65,69 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Forms\AccountCreate.xaml.cs">
+      <DependentUpon>AccountCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountEdit.xaml.cs">
+      <DependentUpon>AccountEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GroupCreate.xaml.cs">
+      <DependentUpon>GroupCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GroupEdit.xaml.cs">
+      <DependentUpon>GroupEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RoutesEdit.xaml.cs">
+      <DependentUpon>RoutesEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StatsWindow.xaml.cs">
+      <DependentUpon>StatsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\SuperAdminPanel.xaml.cs">
       <DependentUpon>SuperAdminPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WorkersEdit.xaml.cs">
+      <DependentUpon>WorkersEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="TextResizer.cs" />
     <Compile Include="UserData.cs" />
+    <Page Include="Forms\AccountCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\AccountEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\GroupCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\GroupEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forms\RoutesEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\StatsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\SuperAdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\WorkersEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

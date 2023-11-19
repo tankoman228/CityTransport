@@ -23,6 +23,55 @@ namespace CityTransport.Forms
         public SuperAdminPanel()
         {
             InitializeComponent();
+
+            btnCarriers.Click += BtnCarriers_Click;
+            btnCreateAccount.Click += BtnCreateAccount_Click;
+            btnCreateGroup.Click += BtnCreateGroup_Click;
+            btnEditAccount.Click += BtnEditAccount_Click;
+            btnEditGroup.Click += BtnEditGroup_Click;
+            btnRoutes.Click += BtnRoutes_Click;
+            btnStats.Click += BtnStats_Click;
+            btnWorkers.Click += BtnWorkers_Click;
+        }
+
+        private void BtnWorkers_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnStats_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnRoutes_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnEditGroup_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnEditAccount_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnCreateGroup_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnCreateAccount_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnCarriers_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
