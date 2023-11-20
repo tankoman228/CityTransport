@@ -79,6 +79,9 @@
     <Compile Include="Forms\GroupEdit.xaml.cs">
       <DependentUpon>GroupEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Items\AccountLbItem.cs" />
+    <Compile Include="Forms\Items\GroupCbItem.cs" />
+    <Compile Include="Forms\Items\WorkerCbItem.cs" />
     <Compile Include="Forms\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>

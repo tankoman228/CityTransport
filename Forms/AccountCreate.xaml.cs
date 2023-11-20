@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CityTransport.Forms.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace CityTransport.Forms
 {
@@ -124,26 +126,6 @@ namespace CityTransport.Forms
                     error("databae error: \n\n" + ex.Message);
                 }
             }
-        }
-
-         class WorkerCbItem
-        {
-            public DB_Objects.Worker W { get; set; }
-
-            public override string ToString()
-            {
-                return $"{W.Email} : {W.Sirname} : {W.Phone}";
-            }
-        }
-
-         class GroupCbItem
-        {
-            public DB_Objects.Group G { get; set; }
-
-            public override string ToString()
-            {
-                return G.Name;
-            }
-        }
+        }        
     }
 }

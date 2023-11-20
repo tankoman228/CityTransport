@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CityTransport.Forms.Items;
 
 namespace CityTransport.Forms
 {
@@ -33,11 +34,45 @@ namespace CityTransport.Forms
             btnStats.Click += BtnStats_Click;
             btnWorkers.Click += BtnWorkers_Click;
 
-            using (var x = new DB())
+            using (var db = new DB())
             {
+                List<GroupCbItem> groups = new List<GroupCbItem>();
+
+                foreach (var x in db.group)
+                {
+                    groups.Add(new GroupCbItem {G = x});
+                }
+
+                foreach (var g in groups)
+                {
+
+                    var accounts = db.account.Include("Worker").
+                        Where(x => x.ID_Group == g.G.ID_Group).ToList();
+
+                    lbUsersGroups.Items.Add(g);
+
+                    foreach (DB_Objects.Account account in accounts)
+                    {
+                        var item = new AccountLbItem { A = account };
+                        lbUsersGroups.Items.Add(item);
+                    }
+                }
+
+                var accountss = db.account.Include("Worker").
+                        Where(x => x.ID_Group == null).ToList();
+
+                lbUsersGroups.Items.Add("[--have no group--]");
+                foreach (DB_Objects.Account account in accountss)
+                {
+                    var item = new AccountLbItem { A = account };
+                    lbUsersGroups.Items.Add(item);
+                }
+
 
             }
         }
+
+        
 
         private void BtnWorkers_Click(object sender, RoutedEventArgs e)
         {
