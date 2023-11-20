@@ -12,7 +12,7 @@ namespace CityTransport.Forms.Items
 
         public override string ToString()
         {
-            return $"   {A.Username} : {A.Worker.FirstName} {A.Worker.Sirname} : {A.Worker.Email}";
+            return $"\t{A.Username} : {A.Worker.FirstName} {A.Worker.Sirname} : {A.Worker.Email}";
         }
     }
 }

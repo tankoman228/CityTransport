@@ -11,7 +11,7 @@ namespace CityTransport.Forms
         {
             InitializeComponent();
 
-            switch(UserData.userType)
+            switch (UserData.userType)
             {
                 case UserData.UserType.Operator:
                     MessageBox.Show("You're operator");                  

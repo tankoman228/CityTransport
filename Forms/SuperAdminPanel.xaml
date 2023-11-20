@@ -24,7 +24,8 @@
         <TextBlock FontSize="22">Users/Groups list</TextBlock>
         <TextBlock FontSize="22" Grid.Column="1">Other options</TextBlock>
 
-        <ListBox x:Name="lbUsersGroups" Grid.Row="1" Margin="10"></ListBox>
+        <ListBox x:Name="lbUsersGroups" Grid.Row="1" Margin="10"
+                 FontSize="24">No users/groups found</ListBox>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="15" Orientation="Vertical"
                     CanVerticallyScroll="True">

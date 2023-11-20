@@ -24,7 +24,7 @@ namespace CityTransport
             resize(NewTextSize);
         }
 
-        private void resize(double NewTextSize)
+        public void resize(double NewTextSize)
         {
             var buttons = FindVisualChildren<Button>(window);
             var textboxes = FindVisualChildren<TextBox>(window);

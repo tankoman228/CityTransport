@@ -34,45 +34,77 @@ namespace CityTransport.Forms
             btnStats.Click += BtnStats_Click;
             btnWorkers.Click += BtnWorkers_Click;
 
+            updUserGroupList();
+
+            tbSearch.TextChanged += TbSearch_TextChanged;
+        }
+
+        private void TbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            updUserGroupList();
+        }
+
+        private void updUserGroupList()
+        {
+            lbUsersGroups.Items.Clear();
+
             using (var db = new DB())
             {
                 List<GroupCbItem> groups = new List<GroupCbItem>();
 
                 foreach (var x in db.group)
                 {
-                    groups.Add(new GroupCbItem {G = x});
+                    groups.Add(new GroupCbItem { G = x });
                 }
 
                 foreach (var g in groups)
                 {
 
                     var accounts = db.account.Include("Worker").
-                        Where(x => x.ID_Group == g.G.ID_Group).ToList();
+                        Where(x => x.ID_Group == g.G.ID_Group).ToList();                
 
-                    lbUsersGroups.Items.Add(g);
+                    bool not_found_a_group = !g.G.Name.Contains(tbSearch.Text);
+                    bool skip_account = !not_found_a_group;
+                    if (skip_account)
+                    {
+                        lbUsersGroups.Items.Add(g);
+                    }
 
                     foreach (DB_Objects.Account account in accounts)
                     {
                         var item = new AccountLbItem { A = account };
-                        lbUsersGroups.Items.Add(item);
+                        if (skip_account || item.ToString().Contains(tbSearch.Text))
+                        {
+                            if (not_found_a_group)
+                            {
+                                lbUsersGroups.Items.Add(g);
+                                not_found_a_group = false;
+                            }
+                            lbUsersGroups.Items.Add(item);
+                        }
+                    }
+
+                    if (!not_found_a_group)
+                    {
+                        lbUsersGroups.Items.Add("");
                     }
                 }
 
                 var accountss = db.account.Include("Worker").
                         Where(x => x.ID_Group == null).ToList();
 
+                lbUsersGroups.Items.Add("");
                 lbUsersGroups.Items.Add("[--have no group--]");
+                lbUsersGroups.Items.Add("");
+
                 foreach (DB_Objects.Account account in accountss)
                 {
                     var item = new AccountLbItem { A = account };
-                    lbUsersGroups.Items.Add(item);
+                    if (item.ToString().Contains(tbSearch.Text))
+                        lbUsersGroups.Items.Add(item);
                 }
-
-
             }
         }
-
-        
 
         private void BtnWorkers_Click(object sender, RoutedEventArgs e)
         {
