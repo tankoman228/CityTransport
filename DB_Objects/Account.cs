@@ -15,6 +15,10 @@ namespace CityTransport.DB_Objects
         public int ID_Account { get; set; }
 
         public int? ID_Worker { get; set; }
+
+        [ForeignKey("ID_Worker")]
+        public Worker Worker { get; set; }
+
         public int? ID_Group { get; set; }
         public int ID_AccountType { get; set; }
 

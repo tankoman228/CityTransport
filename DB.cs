@@ -23,5 +23,6 @@ namespace CityTransport
 
         public DbSet<DB_Objects.Account> account { get; set; }
         public DbSet<DB_Objects.Group> group { get; set; }
+        public DbSet<DB_Objects.Worker> worker { get; set; }
     }
 }

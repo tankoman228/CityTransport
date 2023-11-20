@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DB_Objects\Worker.cs" />
     <Compile Include="DB_Objects\Group.cs" />
     <Compile Include="Forms\AccountCreate.xaml.cs">
       <DependentUpon>AccountCreate.xaml</DependentUpon>
