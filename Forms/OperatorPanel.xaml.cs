@@ -29,7 +29,7 @@ namespace CityTransport.Forms
             {
                 List<GroupCbItem> groups = new List<GroupCbItem>();
 
-                var routes = db.group_route.Include("Route").
+                var routes = db.group_route.Include("Route").Include("Route.Carrier").
                     Where(x => x.ID_Group == UserData.Account.ID_Group).ToList();
 
                 foreach (var route in routes)
