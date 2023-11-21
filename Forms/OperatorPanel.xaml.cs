@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CityTransport.Forms.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace CityTransport.Forms
         public OperatorPanel()
         {
             InitializeComponent();
+
+            using (var db = new DB())
+            {
+                List<GroupCbItem> groups = new List<GroupCbItem>();
+
+                var routes = db.group_route.Include("Route").
+                    Where(x => x.ID_Group == UserData.Account.ID_Group).ToList();
+
+                foreach (var route in routes)
+                {
+                    var item = new RouteLbItem { R = route.Route };
+                    lbRoutes.Items.Add(item);
+                }
+            }
         }
     }
 }

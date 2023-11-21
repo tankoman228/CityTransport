@@ -10,6 +10,24 @@
       Background="GhostWhite">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" MaxHeight="300"/>
+            <RowDefinition />
+            <RowDefinition Height="0.2*" MaxHeight="300"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="15" Orientation="Vertical"
+                    CanVerticallyScroll="True">
+            <Button x:Name="btnStats"
+                Margin="5" MinHeight="30">Stats</Button>
+
+            <Button x:Name="btnEditRoute"
+                Margin="5" MinHeight="30">Edit chosen route</Button>
+
+            <ListBox x:Name="lbRoutes" Margin="5">
+                
+            </ListBox>
+        </StackPanel>
+
     </Grid>
 </Page>

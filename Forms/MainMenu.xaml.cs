@@ -14,7 +14,8 @@ namespace CityTransport.Forms
             switch (UserData.userType)
             {
                 case UserData.UserType.Operator:
-                    MessageBox.Show("You're operator");                  
+                    MessageBox.Show("You're operator");     
+                    pgContents.Content = new OperatorPanel();
                     break;
                 case UserData.UserType.Admin:
                     MessageBox.Show("You're admin");
