@@ -27,8 +27,6 @@ namespace CityTransport.Forms
 
             using (var db = new DB())
             {
-                List<GroupCbItem> groups = new List<GroupCbItem>();
-
                 var routes = db.group_route.Include("Route").Include("Route.Carrier").
                     Where(x => x.ID_Group == UserData.Account.ID_Group).ToList();
 
@@ -38,6 +36,22 @@ namespace CityTransport.Forms
                     lbRoutes.Items.Add(item);
                 }
             }
+
+            btnEditRoute.Click += BtnEditRoute_Click;
+        }
+
+        private void BtnEditRoute_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbRoutes.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select route to edit", "can't edit unchosen route",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            RouteEdit.Route = ((RouteLbItem)lbRoutes.SelectedItem).R;
+
+            new RouteEdit().ShowDialog();
         }
     }
 }
