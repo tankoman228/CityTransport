@@ -18,6 +18,7 @@ namespace CityTransport.Forms
                     break;
                 case UserData.UserType.Admin:
                     MessageBox.Show("You're admin");
+                    pgContents.Content = new AdminPanel();
                     break;
                 case UserData.UserType.SuperAdmin:
                     pgContents.Content = new SuperAdminPanel();

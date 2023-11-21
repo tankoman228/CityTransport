@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CityTransport.Forms"
         mc:Ignorable="d"
-        Title="AccountEdit" Height="450" Width="800">
+        Title="AccountEdit" Height="915" Width="800"
+        >
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="40">Account Edit</TextBlock>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="15,0,15,0">
+            <TextBlock FontSize="24" TextAlignment="Left" Margin="5">
+                Editing: </TextBlock>
+            <TextBox x:Name="tbUser"
+                FontSize="30" Background="#FFF6F6F6" Margin="5" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="tbWorker"
+                FontSize="30" Background="#FFF6F6F6" Margin="5"
+                     IsReadOnly="True"></TextBox>
+
+            <TextBlock FontSize="24" TextAlignment="Left" Margin="5">
+                New Password*</TextBlock>
+            <PasswordBox x:Name="pbPassword"
+                FontSize="30" Background="#FFF6F6F6" Margin="5"></PasswordBox>
+
+            <TextBlock FontSize="24" TextAlignment="Left" Margin="5">
+                Confirm Password*</TextBlock>
+            <PasswordBox x:Name="pbPasswordConfirm"
+                FontSize="30" Background="#FFF6F6F6" Margin="5"></PasswordBox>
+
+            <Button 
+                x:Name="btnNewPassword"
+                Margin="15" Height="50" FontSize="25">Update user password</Button>
+
+            <TextBlock FontSize="24" TextAlignment="Left" Margin="5">
+                Role*</TextBlock>
+            <ComboBox x:Name="cbRole"
+                FontSize="30" Background="#FFF6F6F6" Margin="5">
+                <ComboBoxItem x:Name="ciOperator"
+                    >Operator</ComboBoxItem>
+                <ComboBoxItem x:Name="ciAdmin"
+                    >Administrator</ComboBoxItem>
+                <ComboBoxItem x:Name="ciSuperadmin"
+                    >Superadministrator</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock FontSize="24" TextAlignment="Left" Margin="5">
+                Group</TextBlock>
+            <ComboBox x:Name="cbGroup"
+                FontSize="30" Background="#FFF6F6F6" Margin="5">
+                <ComboBoxItem x:Name="cbiNoGroup"></ComboBoxItem>
+            </ComboBox>
+
+            <Button 
+                x:Name="btnSave"
+                Margin="15" Height="50" FontSize="25">Confirm and Save</Button>
+
+            <Button 
+                x:Name="btnToggleActive"
+                Margin="15" Height="50" FontSize="25">Deacivate</Button>
+
+        </StackPanel>
     </Grid>
 </Window>

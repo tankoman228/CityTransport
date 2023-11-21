@@ -128,7 +128,14 @@ namespace CityTransport.Forms
 
         private void BtnEditAccount_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (!(lbUsersGroups.SelectedItem is AccountLbItem))
+            {
+                MessageBox.Show("Choose account to edit", "Edit account error", MessageBoxButton.OK, MessageBoxImage.Question);
+                return;
+            }
+
+            AccountEdit.account = ((AccountLbItem)lbUsersGroups.SelectedItem).A;
+            new AccountEdit().Show();
         }
 
         private void BtnCreateGroup_Click(object sender, RoutedEventArgs e)

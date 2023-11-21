@@ -1,0 +1,55 @@
+﻿<Page x:Class="CityTransport.Forms.AdminPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CityTransport.Forms"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPanel"
+      Background="GhostWhite"
+      >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" MaxHeight="300"/>
+            <RowDefinition />
+            <RowDefinition Height="0.2*" MaxHeight="300"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock FontSize="22">Users/Groups list</TextBlock>
+        <TextBlock FontSize="22" Grid.Column="1">Other options</TextBlock>
+
+        <ListBox x:Name="lbUsersGroups" Grid.Row="1" Margin="10"
+                 FontSize="24">No users/groups found</ListBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="15" Orientation="Vertical"
+                    CanVerticallyScroll="True">
+            <Button x:Name="btnRoutes"
+                Margin="5" MinHeight="30">Routes</Button>
+            <Button x:Name="btnStats"
+                Margin="5" MinHeight="30">Stats</Button>
+            <Button x:Name="btnWorkers"
+                Margin="5" MinHeight="30">Workers</Button>
+            <Button x:Name="btnCarriers"
+                Margin="5" MinHeight="30">Carriers</Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
+            <TextBox x:Name="tbSearch" 
+                     VerticalContentAlignment="Center"
+                     MinWidth="150"
+                     Margin="5"
+                     VerticalAlignment="Stretch"
+                     ToolTip="Search"></TextBox>
+            <Button x:Name="btnEditAccount"
+                Margin="5">Edit Account</Button>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

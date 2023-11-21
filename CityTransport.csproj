@@ -73,6 +73,9 @@
     <Compile Include="Forms\AccountEdit.xaml.cs">
       <DependentUpon>AccountEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AdminPanel.xaml.cs">
+      <DependentUpon>AdminPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GroupCreate.xaml.cs">
       <DependentUpon>GroupCreate.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,9 @@
     <Compile Include="Forms\Items\WorkerCbItem.cs" />
     <Compile Include="Forms\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperatorPanel.xaml.cs">
+      <DependentUpon>OperatorPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\RoutesEdit.xaml.cs">
       <DependentUpon>RoutesEdit.xaml</DependentUpon>
@@ -108,6 +114,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forms\AdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\GroupCreate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\OperatorPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
