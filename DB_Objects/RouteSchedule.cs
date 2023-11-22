@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CityTransport.DB_Objects
 {
+    [Table("RouteSchedule")]
     internal class RouteSchedule
     {
         [Key]

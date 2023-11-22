@@ -50,21 +50,24 @@ namespace CityTransport
 
                 if (account == null)
                 {
-                    MessageBox.Show("User doesn't exist!");
+                    MessageBox.Show("User doesn't exist!", "Login Error",
+                        MessageBoxButton.OK, MessageBoxImage.Stop);
                     return;
                 }
                 else
                 {
                     if (!PasswordHash.verifyPassword(tbPassword.Password, account.PasswordHash))
                     {
-                        MessageBox.Show("Wrong password!");
+                        MessageBox.Show("Wrong password!", "Login Error",
+                            MessageBoxButton.OK, MessageBoxImage.Stop);
                         return;
                     }
                     else
                     {
                         if (account.Status != true)
                         {
-                            MessageBox.Show("Admins disabled your account!");
+                            MessageBox.Show("Admins disabled your account!", "Login Error",
+                                MessageBoxButton.OK, MessageBoxImage.Stop);
                             return;
                         }
                         else
@@ -82,7 +85,8 @@ namespace CityTransport
                                     break;
                                 default:
                                     UserData.userType = UserData.UserType.Unknown;
-                                    MessageBox.Show("Unknown user role!");
+                                    MessageBox.Show("Unknown user role!", "Login Error",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
                                     return; //RETURN! Don't open new window
                             }
 

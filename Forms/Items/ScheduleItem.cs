@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace CityTransport.Forms.Items
 {
-    internal class StopItem
+    internal class ScheduleItem
     {
-        public DB_Objects.Stop S;
-        public DB_Objects.RouteStop RS; //MAY BE NULL!
+        public DB_Objects.RouteSchedule S;
 
         public override string ToString()
         {
-            if (RS == null)
-                return S.Name;
-
-            return $"{RS.NumInWay}. {S.Name}";
+            return $"{S.RouteStop.Stop.Name} : {S.ArriveTime} >< {S.DepartureTime}";
         }
     }
 }
