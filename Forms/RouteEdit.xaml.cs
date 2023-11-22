@@ -96,15 +96,15 @@ namespace CityTransport.Forms
                 {
                     var s = db.route_stop.Where(x => x.ID_Route == Route.ID_Route && 
                     x.Stop.ID_Stop == ((StopItem)lbStops.SelectedItem).S.ID_Stop).FirstOrDefault();
-                    db.route_stop.Remove(s);
 
                     var stops = db.route_stop.Where(x => x.ID_Route == Route.ID_Route).ToList();
                     foreach (var stop in stops)
                     {
-                        if (stop.NumInWay >= s.NumInWay)
+                        if (stop.NumInWay > s.NumInWay)
                             stop.NumInWay--;
                     }
 
+                    db.route_stop.Remove(s);
                     db.SaveChanges();
                     upd_from_database();
                 }
@@ -192,26 +192,30 @@ namespace CityTransport.Forms
 
         private void BtnAddStopAfter_Click(object sender, RoutedEventArgs e)
         {
-            if (cbStop.SelectedIndex == -1)
-            {
-                MessageBox.Show("Choose stop from left list first", "Can't find item", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
             try
             {
                 var prev = (StopItem)lbStops.SelectedItem;
 
-                int id_stop = ((StopItem)cbStop.SelectedItem).S.ID_Stop;
+                int id_stop = -1;
+                if (cbStop.SelectedIndex != -1)
+                    id_stop = ((StopItem)cbStop.SelectedItem).S.ID_Stop;
+
+                int num_in_way = 1;
+
                 foreach (StopItem s in lbStops.Items)
+                {
                     if (s.S.ID_Stop == id_stop)
                         throw new Exception("this stop is already set in this route");
+                    if (s.RS.NumInWay > num_in_way)
+                        num_in_way = s.RS.NumInWay;
+                }
 
                 using (DB db = new DB())
                 {
                     var stop = new DB_Objects.RouteStop
                     {
                         ID_Route = Route.ID_Route,
-                        NumInWay = (short)(prev.RS.NumInWay + 1),
+                        NumInWay = (short)num_in_way,
                         ID_Stop = id_stop,
                         DistanceToPreviousKm = decimal.Parse(tbDistance.Text)
                     };
