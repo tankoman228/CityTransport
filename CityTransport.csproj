@@ -70,6 +70,9 @@
     <Compile Include="DB_Objects\Carrier.cs" />
     <Compile Include="DB_Objects\GroupRoute.cs" />
     <Compile Include="DB_Objects\Route.cs" />
+    <Compile Include="DB_Objects\RouteSchedule.cs" />
+    <Compile Include="DB_Objects\RouteStop.cs" />
+    <Compile Include="DB_Objects\Stop.cs" />
     <Compile Include="DB_Objects\Worker.cs" />
     <Compile Include="DB_Objects\Group.cs" />
     <Compile Include="Forms\AccountCreate.xaml.cs">
