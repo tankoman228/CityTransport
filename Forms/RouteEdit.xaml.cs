@@ -257,6 +257,8 @@ namespace CityTransport.Forms
                         DepartureTime = TimeSpan.Parse(tbHoursDeparture.Text+":"+ tbMinutesDeparture.Text)
                     };
 
+                    db.route_schedule.Add(a);
+
                     db.SaveChanges();
                     upd_from_database();
                 }
