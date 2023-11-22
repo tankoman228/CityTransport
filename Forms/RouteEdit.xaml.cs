@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CityTransport.Forms.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace CityTransport.Forms
 
             new TextResizer(this);
 
+            #region basic
             tbRouteNumber.Text = Route.RouteNumber;
             tbInWayMinutes.Text = Route.TimeInWayMinutes.ToString();
 
@@ -39,6 +41,22 @@ namespace CityTransport.Forms
             cbSunday.IsChecked = Route.onSunday;
 
             btnSaveBasic.Click += BtnSaveBasic_Click;
+            #endregion
+
+            #region schedule
+
+            using (DB db = new DB())
+            {
+                var stops = db.stop;
+                foreach (var stop in stops)
+                {
+                    StopItem item = new StopItem { S = stop };
+                    cbStop.Items.Add(item);
+                }
+
+            }
+
+            #endregion
         }
 
         private void BtnSaveBasic_Click(object sender, RoutedEventArgs e)

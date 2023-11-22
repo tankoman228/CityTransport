@@ -93,6 +93,7 @@
     <Compile Include="Forms\Items\AccountLbItem.cs" />
     <Compile Include="Forms\Items\GroupCbItem.cs" />
     <Compile Include="Forms\Items\RouteLbItem.cs" />
+    <Compile Include="Forms\Items\StopItem.cs" />
     <Compile Include="Forms\Items\WorkerCbItem.cs" />
     <Compile Include="Forms\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
