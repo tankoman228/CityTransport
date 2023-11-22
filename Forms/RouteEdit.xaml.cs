@@ -96,6 +96,9 @@ namespace CityTransport.Forms
                 {
                     var s = db.route_stop.Where(x => x.ID_Route == Route.ID_Route && 
                     x.Stop.ID_Stop == ((StopItem)lbStops.SelectedItem).S.ID_Stop).FirstOrDefault();
+                    
+                    db.route_stop.Remove(s);
+                    db.SaveChanges();
 
                     var stops = db.route_stop.Where(x => x.ID_Route == Route.ID_Route).ToList();
                     foreach (var stop in stops)
@@ -104,7 +107,6 @@ namespace CityTransport.Forms
                             stop.NumInWay--;
                     }
 
-                    db.route_stop.Remove(s);
                     db.SaveChanges();
                     upd_from_database();
                 }
