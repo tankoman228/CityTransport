@@ -118,12 +118,23 @@ namespace CityTransport.Forms
 
         private void BtnRoutes_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ((MainMenu)Application.Current.MainWindow).pgContents.Content =
+                new OperatorPanel();
         }
 
         private void BtnEditGroup_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (!(lbUsersGroups.SelectedItem is Items.GroupCbItem))
+            {
+                MessageBox.Show("Choose a group to edit", "item not selected",
+                    MessageBoxButton.OK, MessageBoxImage.Question);
+                return;
+            }
+
+            var group = (Items.GroupCbItem)lbUsersGroups.SelectedItem;
+
+            GroupEdit.Edited = group.G;
+            new GroupEdit().ShowDialog();
         }
 
         private void BtnEditAccount_Click(object sender, RoutedEventArgs e)

@@ -24,20 +24,13 @@ namespace CityTransport.Forms
         public AdminPanel()
         {
             InitializeComponent();
-            btnCarriers.Click += BtnCarriers_Click;   
             btnEditAccount.Click += BtnEditAccount_Click;      
             btnRoutes.Click += BtnRoutes_Click;
             btnStats.Click += BtnStats_Click;
-            btnWorkers.Click += BtnWorkers_Click;
 
             updUserGroupList();
 
             tbSearch.TextChanged += TbSearch_TextChanged;
-        }
-
-        private void BtnWorkers_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void BtnStats_Click(object sender, RoutedEventArgs e)
@@ -47,7 +40,8 @@ namespace CityTransport.Forms
 
         private void BtnRoutes_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ((MainMenu)Application.Current.MainWindow).pgContents.Content =
+                new OperatorPanel();
         }
 
         private void BtnEditAccount_Click(object sender, RoutedEventArgs e)
@@ -60,11 +54,6 @@ namespace CityTransport.Forms
 
             AccountEdit.account = ((AccountLbItem)lbUsersGroups.SelectedItem).A;
             new AccountEdit().Show();
-        }
-
-        private void BtnCarriers_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void TbSearch_TextChanged(object sender, TextChangedEventArgs e)

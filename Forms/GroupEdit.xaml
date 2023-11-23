@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CityTransport.Forms"
         mc:Ignorable="d"
-        Title="GroupEdit" Height="450" Width="800">
+        Title="GroupEdit" MinHeight="450" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock>Choose the route for this group</TextBlock>
+        <ComboBox x:Name="cbRoute" 
+            Grid.Row="1" Margin="10"></ComboBox>
+        <Button x:Name="btnAdd"  
+            Grid.Row="2" Margin="10">Attach the route to this group</Button>
+        <Button x:Name="btnDelete" 
+            Grid.Row="3" Margin="10">Unpin chosen routes from this group</Button>
+        <TextBlock Grid.Row="4">Routes for this group:</TextBlock>
+        <ListBox x:Name="lbRoutes" 
+            Grid.Row="5" Grid.RowSpan="3" Margin="10"></ListBox>
     </Grid>
 </Window>

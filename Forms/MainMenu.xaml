@@ -17,7 +17,7 @@
             City Transport
         </TextBlock>
 
-        <Frame x:Name="pgContents" Grid.Row="1">
+        <Frame x:Name="pgContents" Grid.Row="1" x:FieldModifier="public">
             
         </Frame>
         

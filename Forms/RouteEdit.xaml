@@ -172,6 +172,28 @@
 
                 </Grid>
             </TabItem>
+            
+            <!--<TabItem Header="Schedule changes">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock>Arrival (planned)</TextBlock>
+                            <ComboBox></ComboBox>
+                            <TextBlock>New time</TextBlock>
+                            <TextBox></TextBox>
+                            <TextBlock>Reason</TextBlock>
+                            <TextBox MinLines="3"></TextBox>
+                            <Button>Save change</Button>
+                            <Button>Delete change</Button>
+                        </StackPanel>
+                    </Grid>
+                    
+                </Grid>
+            </TabItem>-->
         </TabControl>
     </Grid>
 </Window>

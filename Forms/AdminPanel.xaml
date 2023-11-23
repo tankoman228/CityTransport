@@ -30,13 +30,9 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="15" Orientation="Vertical"
                     CanVerticallyScroll="True">
             <Button x:Name="btnRoutes"
-                Margin="5" MinHeight="30">Routes</Button>
+                Margin="5" MinHeight="30">Routes (as operator)</Button>
             <Button x:Name="btnStats"
                 Margin="5" MinHeight="30">Stats</Button>
-            <Button x:Name="btnWorkers"
-                Margin="5" MinHeight="30">Workers</Button>
-            <Button x:Name="btnCarriers"
-                Margin="5" MinHeight="30">Carriers</Button>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
