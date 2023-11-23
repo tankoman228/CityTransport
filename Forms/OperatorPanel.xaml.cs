@@ -30,6 +30,12 @@ namespace CityTransport.Forms
                 var routes = db.group_route.Include("Route").Include("Route.Carrier").
                     Where(x => x.ID_Group == UserData.Account.ID_Group).ToList();
 
+                if (UserData.userType == UserData.UserType.SuperAdmin)
+                {
+                    routes = db.group_route.Include("Route").Include("Route.Carrier").
+                    ToList();
+                }
+
                 foreach (var route in routes)
                 {
                     var item = new RouteLbItem { R = route.Route };
