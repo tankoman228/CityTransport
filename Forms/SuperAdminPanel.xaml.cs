@@ -31,7 +31,6 @@ namespace CityTransport.Forms
             btnEditAccount.Click += BtnEditAccount_Click;
             btnEditGroup.Click += BtnEditGroup_Click;
             btnRoutes.Click += BtnRoutes_Click;
-            btnStats.Click += BtnStats_Click;
             btnWorkers.Click += BtnWorkers_Click;
 
             updUserGroupList();
@@ -106,16 +105,6 @@ namespace CityTransport.Forms
             }
         }
 
-        private void BtnWorkers_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void BtnStats_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void BtnRoutes_Click(object sender, RoutedEventArgs e)
         {
             var w = new MainMenu();
@@ -162,6 +151,11 @@ namespace CityTransport.Forms
         }
 
         private void BtnCarriers_Click(object sender, RoutedEventArgs e)
+        {
+            new CarrierEdit().ShowDialog();
+        }
+
+        private void BtnWorkers_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
         }

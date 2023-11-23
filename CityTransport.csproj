@@ -84,6 +84,9 @@
     <Compile Include="Forms\AdminPanel.xaml.cs">
       <DependentUpon>AdminPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CarrierEdit.xaml.cs">
+      <DependentUpon>CarrierEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GroupCreate.xaml.cs">
       <DependentUpon>GroupCreate.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\AdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CarrierEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
