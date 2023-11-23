@@ -26,7 +26,7 @@
         <Button x:Name="btnDelete" 
             Grid.Row="3" Margin="10">Unpin chosen routes from this group</Button>
         <TextBlock Grid.Row="4">Routes for this group:</TextBlock>
-        <ListBox x:Name="lbRoutes" 
+        <ListBox x:Name="lbRoutes" SelectionMode="Multiple"
             Grid.Row="5" Grid.RowSpan="3" Margin="10"></ListBox>
     </Grid>
 </Window>

@@ -12,7 +12,9 @@ namespace CityTransport.Forms.Items
 
         public override string ToString()
         {
-            return $"{R.RouteNumber} \t {R.Carrier.Name}";
+            if (R.Carrier != null)
+                return $"{R.RouteNumber} \t {R.Carrier.Name}";
+            return R.RouteNumber;
         }
     }
 }
