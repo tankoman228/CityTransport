@@ -69,6 +69,7 @@
     </ApplicationDefinition>
     <Compile Include="DB_Objects\Carrier.cs" />
     <Compile Include="DB_Objects\GroupRoute.cs" />
+    <Compile Include="DB_Objects\Post.cs" />
     <Compile Include="DB_Objects\Route.cs" />
     <Compile Include="DB_Objects\RouteSchedule.cs" />
     <Compile Include="DB_Objects\RouteStop.cs" />

@@ -157,7 +157,7 @@ namespace CityTransport.Forms
 
         private void BtnWorkers_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            new WorkersEdit().ShowDialog();
         }
     }
 }

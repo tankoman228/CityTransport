@@ -38,12 +38,44 @@
                 Grid.Column="3" Margin="10">Delete chosen</Button>
             <Button x:Name="btnSave"
                 Grid.Column="4" Margin="10">Save</Button>
+
+            <TextBox x:Name="tbSearch" Grid.Column="1" Grid.ColumnSpan="2" Margin="10">
+                
+            </TextBox>
         </Grid>
 
         <DataGrid x:Name="dgTableMain" Grid.Row="1"
-            FontSize="24" AutoGenerateColumns="True"
+            FontSize="24" AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Carrier">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox DisplayMemberPath="Name" SelectedValuePath="ID_Carrier" 
+                                      
+                                      SelectedValue="{Binding ID_Carrier, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Post" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox DisplayMemberPath="Name" SelectedValuePath="ID_Post" 
+                                      
+                                      SelectedValue="{Binding ID_Post, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Sirname" Binding="{Binding Sirname}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
+            </DataGrid.Columns>
+
+
         </DataGrid>
     </Grid>
 </Window>
