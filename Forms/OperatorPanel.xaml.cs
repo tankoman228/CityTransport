@@ -27,23 +27,50 @@ namespace CityTransport.Forms
 
             using (var db = new DB())
             {
-                var routes = db.group_route.Include("Route").Include("Route.Carrier").
-                    Where(x => x.ID_Group == UserData.Account.ID_Group).ToList();
-
+                
                 if (UserData.userType == UserData.UserType.SuperAdmin)
                 {
-                    routes = db.group_route.Include("Route").Include("Route.Carrier").
-                    ToList();
+                    var routes = db.route.Include("Carrier").ToList();
+                    foreach (var route in routes)
+                    {
+                        var item = new RouteLbItem { R = route };
+                        lbRoutes.Items.Add(item);
+                    }
                 }
-
-                foreach (var route in routes)
+                else
                 {
-                    var item = new RouteLbItem { R = route.Route };
-                    lbRoutes.Items.Add(item);
+                    btnCreeateRoute.IsEnabled = false;
+
+                    var routes = db.group_route.Include("Route").Include("Route.Carrier").
+                    Where(x => x.ID_Group == UserData.Account.ID_Group).ToList();
+
+                    foreach (var route in routes)
+                    {
+                        var item = new RouteLbItem { R = route.Route };
+                        lbRoutes.Items.Add(item);
+                    }
                 }
             }
 
             btnEditRoute.Click += BtnEditRoute_Click;
+            btnCreeateRoute.Click += BtnCreeateRoute_Click;
+        }
+
+        private void BtnCreeateRoute_Click(object sender, RoutedEventArgs e)
+        {
+            new RouteCreate().ShowDialog();
+
+            using (var db = new DB())
+            {
+                var routes = db.route.Include("Carrier").ToList();
+
+                lbRoutes.Items.Clear();
+                foreach (var route in routes)
+                {
+                    var item = new RouteLbItem { R = route };
+                    lbRoutes.Items.Add(item);
+                }
+            }
         }
 
         private void BtnEditRoute_Click(object sender, RoutedEventArgs e)

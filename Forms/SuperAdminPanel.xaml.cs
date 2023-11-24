@@ -107,10 +107,11 @@ namespace CityTransport.Forms
 
         private void BtnRoutes_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.MainWindow.Close();
             var w = new MainMenu();
             w.Show();
-            for (int i = 0; i < 1000000000; i++) { }
-            w.pgContents.Content = new OperatorPanel();
+            for (int i = 0; i < 5000000; i++) { }
+            w.pgContents.Content = new OperatorPanel();           
         }
 
         private void BtnEditGroup_Click(object sender, RoutedEventArgs e)

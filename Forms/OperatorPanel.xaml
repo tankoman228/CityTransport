@@ -11,8 +11,8 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*" MaxHeight="300"/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="0.7*"/>
             <RowDefinition  MaxHeight="300"/>
         </Grid.RowDefinitions>
 
@@ -23,6 +23,9 @@
 
             <Button x:Name="btnEditRoute"
                 Margin="5" MinHeight="30">Edit chosen route</Button>
+            
+            <Button x:Name="btnCreeateRoute"
+                Margin="5" MinHeight="30">Create new route</Button>
         </StackPanel>
 
         <ListBox x:Name="lbRoutes" Margin="25"  Grid.Row="2" >

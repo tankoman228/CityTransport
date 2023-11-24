@@ -74,6 +74,7 @@
     <Compile Include="DB_Objects\RouteSchedule.cs" />
     <Compile Include="DB_Objects\RouteStop.cs" />
     <Compile Include="DB_Objects\Stop.cs" />
+    <Compile Include="DB_Objects\TransportType.cs" />
     <Compile Include="DB_Objects\Worker.cs" />
     <Compile Include="DB_Objects\Group.cs" />
     <Compile Include="Forms\AccountCreate.xaml.cs">
@@ -105,6 +106,9 @@
     </Compile>
     <Compile Include="Forms\OperatorPanel.xaml.cs">
       <DependentUpon>OperatorPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RouteCreate.xaml.cs">
+      <DependentUpon>RouteCreate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\RouteEdit.xaml.cs">
       <DependentUpon>RouteEdit.xaml</DependentUpon>
@@ -150,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\OperatorPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\RouteCreate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
