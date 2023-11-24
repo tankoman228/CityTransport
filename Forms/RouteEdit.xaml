@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CityTransport.Forms"
         mc:Ignorable="d"
-        Title="RouteEdit" MinHeight="450" MinWidth="800">
+        Title="RouteEdit" MinHeight="550" MinWidth="800">
     <Grid>
         <TabControl FontSize="24">
             <TabItem Header="Basic info">
@@ -139,7 +139,7 @@
                                 <ColumnDefinition Width="0.1*" />
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            
+
                             <TextBox x:Name="tbHoursArrive"
                                 Margin="5" MaxLength="2"></TextBox>
                             <TextBlock Margin="5" Grid.Column="1">:</TextBlock>
@@ -172,8 +172,7 @@
 
                 </Grid>
             </TabItem>
-            
-            <!--<TabItem Header="Schedule changes">
+            <TabItem Header="Schedule changes">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -182,18 +181,26 @@
                     <Grid>
                         <StackPanel>
                             <TextBlock>Arrival (planned)</TextBlock>
-                            <ComboBox></ComboBox>
+                            <ComboBox x:Name="cbArrivalPlanned"
+                                Margin="5"></ComboBox>
+                            <TextBlock>When</TextBlock>
+                            <DatePicker x:Name="dpWhenChanged"
+                                Margin="5"></DatePicker>
                             <TextBlock>New time</TextBlock>
-                            <TextBox></TextBox>
-                            <TextBlock>Reason</TextBlock>
-                            <TextBox MinLines="3"></TextBox>
-                            <Button>Save change</Button>
-                            <Button>Delete change</Button>
+                            <TextBox x:Name="tbTimeChange"
+                                MaxLength="5"></TextBox>
+                            <TextBlock>Change Reason</TextBlock>
+                            <TextBox x:Name="tbChangeReason" 
+                                     Margin="5" MinLines="3"></TextBox>
+                            <Button x:Name="btnSaveChanges" Margin="5">Save change</Button>
+                            <Button x:Name="btnDeleteChanges" Margin="5">Delete selected changes</Button>
                         </StackPanel>
                     </Grid>
-                    
+
+                    <ListBox x:Name="lbScheduleChanges" SelectionMode="Multiple"
+                        Grid.Column="1" Margin="10"></ListBox>
                 </Grid>
-            </TabItem>-->
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
