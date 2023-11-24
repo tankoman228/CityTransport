@@ -27,27 +27,70 @@ namespace CityTransport.Forms
         public CarrierEdit()
         {
             InitializeComponent();
+            new TextResizer(this);
 
+            db = new DB();
             reload();
             
             Closing += (sender, args) =>
             {
-                try
+                reload();
+            };
+
+            btnSave.Click += (sender, args) => reload();
+            btnAdd.Click += BtnAdd_Click;
+            btnDelete.Click += BtnDelete_Click;
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (DB db = new DB())
                 {
+                    foreach (DB_Objects.Carrier c in dgTableMain.SelectedItems)
+                    {
+                        db.carrier.Remove(db.carrier.
+                            Where(x => x.ID_Carrier == c.ID_Carrier).First());
+                    }
                     db.SaveChanges();
                 }
-                catch (Exception ex)
+                reload();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can't delete these items : \n\n"+ex.Message, "Delete error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            using (DB db = new DB())
+            {
+                var c = new DB_Objects.Carrier
                 {
-                    MessageBox.Show(ex.Message);
-                }
-            };
+                    Head = "head",
+                    Name = "name",
+                    Phone = "phone"
+                };
+                db.carrier.Add(c);
+                db.SaveChanges();
+            }
+            reload();
         }
 
         public void reload()
         {
-            if (db != null)
+            try
+            {
                 db.SaveChanges();
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Update error : \n\n" + ex.Message, "Can't save these changes",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             db = new DB();
             var c = db.carrier.ToList();
             dgTableMain.ItemsSource = c;

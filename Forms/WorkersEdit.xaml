@@ -7,6 +7,43 @@
         mc:Ignorable="d"
         Title="WorkersEdit" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnAdd"
+                Grid.Column="0" Margin="10">Add new</Button>
+            <Button x:Name="btnDelete"
+                Grid.Column="3" Margin="10">Delete chosen</Button>
+            <Button x:Name="btnSave"
+                Grid.Column="4" Margin="10">Save</Button>
+        </Grid>
+
+        <DataGrid x:Name="dgTableMain" Grid.Row="1"
+            FontSize="24" AutoGenerateColumns="True"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False">
+        </DataGrid>
     </Grid>
 </Window>
