@@ -192,7 +192,7 @@
                             <TextBlock>Change Reason</TextBlock>
                             <TextBox x:Name="tbChangeReason" 
                                      Margin="5" MinLines="3"></TextBox>
-                            <Button x:Name="btnSaveChanges" Margin="5">Save change</Button>
+                            <Button x:Name="btnSaveChange" Margin="5">Save change</Button>
                             <Button x:Name="btnDeleteChanges" Margin="5">Delete selected changes</Button>
                         </StackPanel>
                     </Grid>

@@ -29,6 +29,7 @@ namespace CityTransport
         public DbSet<DB_Objects.GroupRoute> group_route { get; set; }
         public DbSet<DB_Objects.RouteStop> route_stop { get; set; }
         public DbSet<DB_Objects.RouteSchedule> route_schedule { get; set; }
+        public DbSet<DB_Objects.ScheduleChange> schedule_change { get; set; }
         public DbSet<DB_Objects.Stop> stop { get; set; }
         public DbSet<DB_Objects.Post> post { get; set; }
         public DbSet<DB_Objects.TransportType> transportType { get; set; }

@@ -12,14 +12,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition  MaxHeight="300"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="15" Orientation="Vertical"
                     CanVerticallyScroll="True">
-            <Button x:Name="btnStats"
-                Margin="5" MinHeight="30">Stats</Button>
 
             <Button x:Name="btnEditRoute"
                 Margin="5" MinHeight="30">Edit chosen route</Button>

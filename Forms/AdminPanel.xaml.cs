@@ -36,7 +36,6 @@ namespace CityTransport.Forms
         {
             var w = new MainMenu();
             w.Show();
-            for (int i = 0; i < 1000000000; i++) { }
             w.pgContents.Content = new OperatorPanel();
         }
 

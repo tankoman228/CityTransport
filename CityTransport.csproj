@@ -73,6 +73,7 @@
     <Compile Include="DB_Objects\Route.cs" />
     <Compile Include="DB_Objects\RouteSchedule.cs" />
     <Compile Include="DB_Objects\RouteStop.cs" />
+    <Compile Include="DB_Objects\ScheduleChange.cs" />
     <Compile Include="DB_Objects\Stop.cs" />
     <Compile Include="DB_Objects\TransportType.cs" />
     <Compile Include="DB_Objects\Worker.cs" />

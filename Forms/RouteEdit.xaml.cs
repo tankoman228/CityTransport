@@ -1,6 +1,7 @@
 ﻿using CityTransport.Forms.Items;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,67 @@ namespace CityTransport.Forms
             btnAddStopBefore.Click += BtnAddStopBefore_Click;
             btnDeleteArrival.Click += BtnDeleteArrival_Click;
             btnDeleteStop.Click += BtnDeleteStop_Click;
+
+            btnDeleteChanges.Click += BtnDeleteChanges_Click;
+            btnSaveChange.Click += BtnSaveChange_Click;
+        }
+
+        private void BtnSaveChange_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbArrivalPlanned.SelectedIndex == -1)
+            {
+                MessageBox.Show("Choose planned stop from list first", "Can't find item", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                using (DB db = new DB())
+                {
+                    string date = dpWhenChanged.SelectedDate.Value.ToString("yyyy-MM-dd");
+                    string time = tbTimeChange.Text;
+
+                    DateTime dateTime = DateTime.ParseExact(date + " " + time, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
+
+                    var c = new DB_Objects.ScheduleChange
+                    {
+                        ID_RouteSchedule = ((ScheduleItem)cbArrivalPlanned.SelectedItem).S.ID_RouteSchedule,
+                        Reason = tbChangeReason.Text,
+                        NewTime = dateTime
+                    };
+
+                    db.schedule_change.Add(c);
+                    db.SaveChanges();
+                    upd_from_database();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Input values are wrong, can't save it to DB \n\n" + ex.Message, "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtnDeleteChanges_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (DB db = new DB())
+                {
+                    foreach (ScheduleItem s in lbScheduleChanges.SelectedItems)
+                    {
+                        db.schedule_change.Remove(db.schedule_change.Where(
+                            x => s.C.ID_ScheduleChange == x.ID_ScheduleChange).First());
+                    }
+                    db.SaveChanges();
+                    upd_from_database();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can't delete this data: \n\n" + ex.Message, "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public void upd_from_database()
@@ -57,6 +119,8 @@ namespace CityTransport.Forms
                 lbStops.Items.Clear();
                 cbStopForSchedule.Items.Clear();
                 lbSchedule.Items.Clear();
+                cbArrivalPlanned.Items.Clear();
+                lbScheduleChanges.Items.Clear();
 
                 var stops = db.stop;
                 foreach (var stop in stops)
@@ -79,6 +143,24 @@ namespace CityTransport.Forms
                 foreach (var stop in schedule)
                 {
                     lbSchedule.Items.Add(new ScheduleItem { S = stop });
+                    cbArrivalPlanned.Items.Add(new ScheduleItem { S = stop });
+                }
+
+
+                var changes = db.schedule_change.
+                    Include("RouteSchedule").
+                    Include("RouteSchedule.RouteStop").
+                    Include("RouteSchedule.RouteStop.Stop").
+                    Where(x => x.RouteSchedule.RouteStop.ID_Route
+                    == Route.ID_Route).ToList();
+
+                foreach (var change in changes)
+                {
+                    lbScheduleChanges.Items.Add(new ScheduleItem
+                    {
+                        S = change.RouteSchedule,
+                        C = change
+                    });
                 }
             }
         }

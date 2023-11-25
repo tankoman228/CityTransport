@@ -14,16 +14,13 @@ namespace CityTransport.Forms
             switch (UserData.userType)
             {
                 case UserData.UserType.Operator:
-                    MessageBox.Show("You're operator");     
                     pgContents.Content = new OperatorPanel();
                     break;
                 case UserData.UserType.Admin:
-                    MessageBox.Show("You're admin");
                     pgContents.Content = new AdminPanel();
                     break;
                 case UserData.UserType.SuperAdmin:
                     pgContents.Content = new SuperAdminPanel();
-                    MessageBox.Show("You're superadmin");
                     break;
                 default:
                     Close();
